@@ -42,4 +42,14 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+let mongoose = require('mongoose');
+let dbUrl = "mongodb://127.0.0.1:27017/";
+let dbName = "Todo";
+
+mongoose.connect(dbUrl+dbName).then(()=>{
+  console.log("Connected to database...");
+}).catch((err)=>{
+  console.log("Cannot connect to database...Erro= "+err);
+})
+
 module.exports = app;
