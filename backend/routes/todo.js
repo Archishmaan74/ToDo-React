@@ -1,5 +1,5 @@
 const express = require('express');
-const router = express.Router;
+const router = express.Router();
 const mongoose = require('mongoose');
 
 const TaskSchema = mongoose.Schema({
@@ -10,5 +10,11 @@ const TaskSchema = mongoose.Schema({
 })
 
 const TaskModel = mongoose.model("tasks",TaskSchema);
+
+router.get("/display", async(req,res)=>{
+    res.send(await TaskModel.find());
+})
+
+
 
 module.exports = router;
