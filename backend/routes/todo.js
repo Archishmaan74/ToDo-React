@@ -12,7 +12,7 @@ const TaskSchema = mongoose.Schema({
 const TaskModel = mongoose.model("tasks",TaskSchema);
 
 router.get("/display", async(req,res)=>{
-    res.send(await TaskModel.find());
+    res.send(await TaskModel.find().sort({sno:1}));
 })
 
 
